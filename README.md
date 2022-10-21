@@ -4,6 +4,8 @@
 
 ## 📲 [Link do deploy](https://dt-money-weld.vercel.app/)
 
+![Capa Github blog](./public/capa.png)
+
 ## 📑 Sobre o projeto
 
 Esta é uma aplicação é **o projeto de entrega** do módulo de "Consumo de API e performance no ReactJS" do curso de especialização Ignite.
