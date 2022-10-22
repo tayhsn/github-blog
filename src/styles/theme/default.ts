@@ -1,4 +1,4 @@
-const defaultTheme = {
+export const defaultTheme = {
   colors: {
     'base-title': '#E7EDF4',
     'base-subtitle': '#C4D4E3',
@@ -18,6 +18,6 @@ const defaultTheme = {
     'title-s': '1.125rem',
     'text-m': '1rem',
     'text-s': '0.875rem',
-    'text-xs': '0.75rem',
+    'components-link': '0.75rem',
   },
-}
+} as const
