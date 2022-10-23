@@ -1,7 +1,7 @@
-import { Layout } from '../layout/index'
-import { Routes, Route } from 'react-router-dom'
-import { Feed } from '../pages/Feed'
-import { IssuePage } from '../pages/IssuePage'
+import { Layout } from '@/layout/index'
+import { Feed } from '@/pages/Feed'
+import { IssuePage } from '@/pages/IssuePage'
+import { Route, Routes } from 'react-router-dom'
 
 export const Router = () => {
   return (
