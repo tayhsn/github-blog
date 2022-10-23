@@ -1,12 +1,5 @@
-import {
-  ArrowSquareOut,
-  Calendar,
-  CaretLeft,
-  ChatCircle,
-  GithubLogo,
-} from 'phosphor-react'
-import { InfoWithIcon } from '../../../../components/InfoWithIcon/InfoWithIcon'
-import { LinkWithIcon } from '../../../../components/LinkWithIcon'
+import { InfoWithIcon } from '@/common/components/InfoWithIcon'
+import { LinkWithIcon } from '@/common/components/LinkWithIcon'
 import {
   IconsContainer,
   InfosContainer,
@@ -15,17 +8,26 @@ import {
   LinksContainer,
 } from './styles'
 
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import {
+  faArrowUpRightFromSquare,
+  faCalendarDay,
+  faChevronLeft,
+  faComment,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 export const IssueHeader = () => {
   return (
     <IssueHeaderContainer>
       <LinksContainer>
         <LinkWithIcon
-          icon={<CaretLeft color="#3294F8" size={12} weight="bold" />}
+          icon={<FontAwesomeIcon icon={faChevronLeft} />}
           text={'VOLTAR'}
           path={'#'}
         />
         <LinkWithIcon
-          icon={<ArrowSquareOut color="#3294F8" size={12} weight="bold" />}
+          icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
           iconIsRight
           text={'VER NO GITHUB'}
           path={'#'}
@@ -37,15 +39,15 @@ export const IssueHeader = () => {
 
         <IconsContainer>
           <InfoWithIcon
-            icon={<GithubLogo color="#3A536B" size={18} />}
+            icon={<FontAwesomeIcon icon={faGithub} />}
             text={'tayhsn'}
           />
           <InfoWithIcon
-            icon={<Calendar color="#3A536B" size={18} />}
+            icon={<FontAwesomeIcon icon={faCalendarDay} />}
             text={'Há 1 dia atrás'}
           />
           <InfoWithIcon
-            icon={<ChatCircle color="#3A536B" size={18} />}
+            icon={<FontAwesomeIcon icon={faComment} />}
             text={'5 comentários'}
           />
         </IconsContainer>
