@@ -18,13 +18,13 @@ export const IssueHeaderContainer = styled.section`
   border-radius: 10px;
 `
 
-export const LinksContainer = styled.header`
+export const IssueLinksContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
 
-export const InfosContainer = styled.footer`
+export const IssueInfosContainer = styled.footer`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
