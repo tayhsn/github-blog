@@ -16,12 +16,6 @@ export const ProfileContainer = styled.section`
   border-radius: 10px;
 
   position: relative;
-
-  span {
-    position: absolute;
-    right: 32px;
-    top: 40px;
-  }
 `
 
 export const UserThumbnail = styled.img`
@@ -36,14 +30,38 @@ export const InfoProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  gap: 1.5rem;
-`
-
-export const ProfileHeaderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   gap: 0.5rem;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      color: ${({ theme }) => theme.colors.blue};
+      font-size: ${({ theme }) => theme.textSizes['components-link']};
+      font-weight: 700;
+
+      text-decoration: none;
+
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        border-bottom: 1px solid ${({ theme }) => theme.colors.blue};
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `
 
 export const IconsContainer = styled.section`

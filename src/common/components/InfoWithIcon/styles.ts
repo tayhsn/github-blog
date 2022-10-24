@@ -4,4 +4,8 @@ export const InfoWithIconContainer = styled.a`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  svg {
+    color: ${({ theme }) => theme.colors['base-span']};
+  }
 `

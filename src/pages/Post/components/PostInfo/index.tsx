@@ -1,6 +1,7 @@
 import { InfoWithIcon } from '@/common/components/InfoWithIcon'
 import { LinkWithIcon } from '@/common/components/LinkWithIcon'
 import {
+  BackButton,
   IconsContainer,
   InfosContainer,
   InfoTitle,
@@ -21,17 +22,15 @@ export const PostInfo = () => {
   return (
     <PostInfoContainer>
       <LinksContainer>
-        <LinkWithIcon
-          icon={<FontAwesomeIcon icon={faChevronLeft} />}
-          text={'VOLTAR'}
-          path={'#'}
-        />
-        <LinkWithIcon
-          icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-          iconIsRight
-          text={'VER NO GITHUB'}
-          path={'#'}
-        />
+        <BackButton to="/">
+          <FontAwesomeIcon icon={faChevronLeft} />
+          VOLTAR
+        </BackButton>
+
+        <a href="#" target="_blank">
+          VER NO GITHUB
+          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+        </a>
       </LinksContainer>
 
       <InfosContainer>

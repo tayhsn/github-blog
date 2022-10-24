@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const PostInfoContainer = styled.section`
@@ -22,6 +23,44 @@ export const LinksContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    color: ${({ theme }) => theme.colors.blue};
+    font-size: ${({ theme }) => theme.textSizes['components-link']};
+    font-weight: 700;
+
+    text-decoration: none;
+
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid ${({ theme }) => theme.colors.blue};
+    }
+  }
+`
+
+export const BackButton = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: ${({ theme }) => theme.colors.blue};
+  font-size: ${({ theme }) => theme.textSizes['components-link']};
+  font-weight: 700;
+
+  text-decoration: none;
+
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.blue};
+  }
 `
 
 export const InfosContainer = styled.footer`

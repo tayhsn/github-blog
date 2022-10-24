@@ -3,20 +3,17 @@ import {
   IconsContainer,
   InfoProfileContainer,
   ProfileContainer,
-  ProfileHeaderContainer,
   UserThumbnail,
 } from './styles'
 
-import { LinkWithIcon } from '@/common/components/LinkWithIcon'
+import { RegularText, TitleText } from '@/common/Typography'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowUpRightFromSquare,
   faBuilding,
-  faComment,
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { RegularText, TitleText } from '@/common/Typography'
 
 export const PersonInfo = () => {
   return (
@@ -27,39 +24,37 @@ export const PersonInfo = () => {
       />
 
       <InfoProfileContainer>
-        <ProfileHeaderContainer>
+        <header>
           <TitleText>Tayanne Novais</TitleText>
+          <a href="#" target="_blank">
+            GITHUB
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </a>
+        </header>
+
+        <main>
           <RegularText>
             Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
             viverra massa quam dignissim aenean malesuada suscipit. Nunc,
             volutpat pulvinar vel mass.
           </RegularText>
-        </ProfileHeaderContainer>
 
-        <IconsContainer>
-          <InfoWithIcon
-            icon={<FontAwesomeIcon icon={faGithub} />}
-            text={'tayhsn'}
-          />
-          <InfoWithIcon
-            icon={<FontAwesomeIcon icon={faBuilding} />}
-            text={'Open to work'}
-          />
-          <InfoWithIcon
-            icon={<FontAwesomeIcon icon={faUserGroup} />}
-            text={'32 seguidores'}
-          />
-        </IconsContainer>
+          <IconsContainer>
+            <InfoWithIcon
+              icon={<FontAwesomeIcon icon={faGithub} />}
+              text={'tayhsn'}
+            />
+            <InfoWithIcon
+              icon={<FontAwesomeIcon icon={faBuilding} />}
+              text={'Open to work'}
+            />
+            <InfoWithIcon
+              icon={<FontAwesomeIcon icon={faUserGroup} />}
+              text={'32 seguidores'}
+            />
+          </IconsContainer>
+        </main>
       </InfoProfileContainer>
-
-      <span>
-        <LinkWithIcon
-          icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-          iconIsRight
-          text={'GITHUB'}
-          path={'#'}
-        />
-      </span>
     </ProfileContainer>
   )
 }

@@ -11,7 +11,7 @@ export const InfoWithIcon = ({ icon, text }: InfoWithIconProps) => {
   return (
     <InfoWithIconContainer>
       {icon}
-      <RegularText size="m" color="subtitle">
+      <RegularText size="m" color="span">
         {text}
       </RegularText>
     </InfoWithIconContainer>
