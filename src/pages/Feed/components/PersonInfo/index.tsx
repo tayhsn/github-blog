@@ -16,8 +16,9 @@ import {
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { RegularText, TitleText } from '@/common/Typography'
 
-export const Profile = () => {
+export const PersonInfo = () => {
   return (
     <ProfileContainer>
       <UserThumbnail
@@ -27,12 +28,12 @@ export const Profile = () => {
 
       <InfoProfileContainer>
         <ProfileHeaderContainer>
-          <h1>Tayanne Novais</h1>
-          <p>
+          <TitleText>Tayanne Novais</TitleText>
+          <RegularText>
             Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
             viverra massa quam dignissim aenean malesuada suscipit. Nunc,
             volutpat pulvinar vel mass.
-          </p>
+          </RegularText>
         </ProfileHeaderContainer>
 
         <IconsContainer>

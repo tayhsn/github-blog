@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const IssuePageContainer = styled.main`
+export const PostPageContainer = styled.main`
   width: 54rem;
   height: 10.5rem;
 

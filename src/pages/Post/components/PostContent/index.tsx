@@ -1,8 +1,8 @@
-import { IssueContentContainer } from './styles'
+import { PostContentContainer } from './styles'
 
-export const IssueContent = () => {
+export const PostContent = () => {
   return (
-    <IssueContentContainer>
+    <PostContentContainer>
       <p>
         Programming languages all have built-in data structures, but these often
         differ from one language to another. This article attempts to list the
@@ -17,6 +17,6 @@ export const IssueContent = () => {
           string foo = true; // foo is now a boolean
         </code>
       </p>
-    </IssueContentContainer>
+    </PostContentContainer>
   )
 }

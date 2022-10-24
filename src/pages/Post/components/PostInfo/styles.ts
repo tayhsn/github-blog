@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const IssueHeaderContainer = styled.section`
+export const PostInfoContainer = styled.section`
   width: 54rem;
   min-height: 10.5rem;
 
@@ -18,19 +18,19 @@ export const IssueHeaderContainer = styled.section`
   border-radius: 10px;
 `
 
-export const IssueLinksContainer = styled.header`
+export const LinksContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
 
-export const IssueInfosContainer = styled.footer`
+export const InfosContainer = styled.footer`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 `
 
-export const IssueTitle = styled.h1`
+export const InfoTitle = styled.h1`
   font-size: ${({ theme }) => theme.textSizes['title-l']};
   font-weight: 700;
 `

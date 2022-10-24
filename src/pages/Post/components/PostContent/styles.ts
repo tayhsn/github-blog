@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const IssueContentContainer = styled.main`
+export const PostContentContainer = styled.main`
   width: 54rem;
 
   padding: 2.5rem 2rem;

@@ -1,3 +1,4 @@
+import { RegularText } from '@/common/Typography'
 import { ReactNode } from 'react'
 import { InfoWithIconContainer } from './styles'
 
@@ -10,7 +11,9 @@ export const InfoWithIcon = ({ icon, text }: InfoWithIconProps) => {
   return (
     <InfoWithIconContainer>
       {icon}
-      <p>{text}</p>
+      <RegularText size="m" color="subtitle">
+        {text}
+      </RegularText>
     </InfoWithIconContainer>
   )
 }

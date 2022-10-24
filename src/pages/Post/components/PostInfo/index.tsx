@@ -2,10 +2,10 @@ import { InfoWithIcon } from '@/common/components/InfoWithIcon'
 import { LinkWithIcon } from '@/common/components/LinkWithIcon'
 import {
   IconsContainer,
-  IssueInfosContainer,
-  IssueHeaderContainer,
-  IssueTitle,
-  IssueLinksContainer,
+  InfosContainer,
+  InfoTitle,
+  LinksContainer,
+  PostInfoContainer,
 } from './styles'
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -17,10 +17,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const IssueHeader = () => {
+export const PostInfo = () => {
   return (
-    <IssueHeaderContainer>
-      <IssueLinksContainer>
+    <PostInfoContainer>
+      <LinksContainer>
         <LinkWithIcon
           icon={<FontAwesomeIcon icon={faChevronLeft} />}
           text={'VOLTAR'}
@@ -32,10 +32,10 @@ export const IssueHeader = () => {
           text={'VER NO GITHUB'}
           path={'#'}
         />
-      </IssueLinksContainer>
+      </LinksContainer>
 
-      <IssueInfosContainer>
-        <IssueTitle>JavaScript data types and data structures</IssueTitle>
+      <InfosContainer>
+        <InfoTitle>JavaScript data types and data structures</InfoTitle>
 
         <IconsContainer>
           <InfoWithIcon
@@ -51,7 +51,7 @@ export const IssueHeader = () => {
             text={'5 comentários'}
           />
         </IconsContainer>
-      </IssueInfosContainer>
-    </IssueHeaderContainer>
+      </InfosContainer>
+    </PostInfoContainer>
   )
 }

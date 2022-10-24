@@ -44,17 +44,6 @@ export const ProfileHeaderContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-
-  h1 {
-    color: ${({ theme }) => theme.colors['base-title']};
-    font-size: ${({ theme }) => theme.textSizes['title-l']};
-    font-weight: 700;
-    line-height: 1.3;
-  }
-
-  p {
-    line-height: 1.6;
-  }
 `
 
 export const IconsContainer = styled.section`
