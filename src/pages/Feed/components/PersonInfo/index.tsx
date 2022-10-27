@@ -7,6 +7,7 @@ import {
 } from './styles'
 
 import { RegularText, TitleText } from '@/common/Typography'
+import { useRequestData } from '@/hooks/useRequestData'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowUpRightFromSquare,
@@ -15,42 +16,45 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+const USER_URL = 'https://api.github.com/users/tayhsn'
+
 export const PersonInfo = () => {
+  const { data, error } = useRequestData(USER_URL)
+
+  if (!data || error) {
+    return <></>
+  }
+
+  const { avatar_url, bio, company, followers, login, name, html_url } = data
+
   return (
     <ProfileContainer>
-      <UserThumbnail
-        src="https://avatars.githubusercontent.com/u/75539863?v=4"
-        alt=""
-      />
+      <UserThumbnail src={avatar_url} alt="" />
 
       <InfoProfileContainer>
         <header>
-          <TitleText>Tayanne Novais</TitleText>
-          <a href="#" target="_blank">
+          <TitleText>{name}</TitleText>
+          <a href={html_url} target="_blank">
             GITHUB
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
         </header>
 
         <main>
-          <RegularText>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </RegularText>
+          <RegularText>{bio}</RegularText>
 
           <IconsContainer>
             <InfoWithIcon
               icon={<FontAwesomeIcon icon={faGithub} />}
-              text={'tayhsn'}
+              text={login}
             />
             <InfoWithIcon
               icon={<FontAwesomeIcon icon={faBuilding} />}
-              text={'Open to work'}
+              text={company}
             />
             <InfoWithIcon
               icon={<FontAwesomeIcon icon={faUserGroup} />}
-              text={'32 seguidores'}
+              text={`${followers} seguidores`}
             />
           </IconsContainer>
         </main>

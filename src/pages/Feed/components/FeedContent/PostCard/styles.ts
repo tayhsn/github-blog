@@ -17,10 +17,16 @@ export const PostCardContainer = styled.article`
 
   header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 
     h1 {
-      width: 17.6875rem;
+      width: 16rem;
+    }
+
+    p {
+      justify-self: flex-end;
+      text-align: right;
     }
   }
 
@@ -28,12 +34,12 @@ export const PostCardContainer = styled.article`
     width: 22rem;
     height: 7rem;
 
-    p {
-      height: 100%;
+    white-space: pre-wrap;
 
-      overflow: hidden;
-      /* text-overflow: ellipsis;
-      white-space: nowrap; */
+    overflow: hidden;
+
+    a {
+      color: ${({ theme }) => theme.colors.blue};
     }
   }
 

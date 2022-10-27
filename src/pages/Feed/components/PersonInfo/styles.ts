@@ -27,6 +27,8 @@ export const UserThumbnail = styled.img`
 `
 
 export const InfoProfileContainer = styled.div`
+  width: 38.25rem;
+
   display: flex;
   flex-direction: column;
 
