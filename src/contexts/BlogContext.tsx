@@ -1,5 +1,11 @@
 import { api } from '@/lib/axios'
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 
 export interface User {
   name: string
@@ -28,11 +34,14 @@ export const BlogProvider = ({ children }: BlogProviderProps) => {
     fetchUser()
   }, [])
 
-  const fetchUser = async () => {
-    const response = await api.get(`/users/tayhsn`).then((res) => res.data)
+  const fetchUser = useCallback(async () => {
+    const response = await api
+      .get(`/users/tayhsn`)
+      .then((res) => res.data)
+      .catch((error) => console.log(error))
 
     setUser(response)
-  }
+  }, [])
 
   return (
     <BlogContext.Provider value={{ user }}>{children}</BlogContext.Provider>

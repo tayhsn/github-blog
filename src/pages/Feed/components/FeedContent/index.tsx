@@ -13,21 +13,23 @@ export const FeedContent = () => {
     fetchIssues()
   }, [])
 
-  const fetchIssues = async () => {
+  const fetchIssues = useCallback(async () => {
     const response = await api
       .get('repos/tayhsn/github-blog/issues')
       .then((res) => res.data)
+      .catch((error) => console.log(error))
 
     setIssues(response)
-  }
+  }, [])
 
-  const fetchSearchIssues = async (query?: string) => {
-    const response = await api.get(
-      `search/issues?q=${query}%20repo:tayhsn/github-blog`
-    )
+  const fetchSearchIssues = useCallback(async (query: string) => {
+    const response = await api
+      .get(`search/issues?q=${query}%20repo:tayhsn/github-blog`)
+      .then((res) => res.data.items)
+      .catch((error) => console.log(error))
 
-    setIssues(response.data.items)
-  }
+    setIssues(response)
+  }, [])
 
   const handlerBounceSearch = useCallback(
     debounce((value) => fetchSearchIssues(value), 1000),
