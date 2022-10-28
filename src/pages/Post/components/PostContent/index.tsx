@@ -1,22 +1,16 @@
-import { useRequestData } from '@/hooks/useRequestData'
+import { useBlog } from '@/hooks/useBlog'
+import { useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { useParams } from 'react-router-dom'
 import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from 'remark-gfm'
 import { PostContentContainer } from './styles'
 
-const ISSUES_URL = 'https://api.github.com/repos/tayhsn/github-blog/issues'
+interface PostContentProps {
+  body: string
+}
 
-export const PostContent = () => {
-  const { id } = useParams()
-  const { data, error } = useRequestData(`${ISSUES_URL}/${id}`)
-
-  if (!data || error) {
-    return <></>
-  }
-
-  const { body } = data
-
+export const PostContent = ({ body }: PostContentProps) => {
   return (
     <PostContentContainer>
       <ReactMarkdown

@@ -1,4 +1,3 @@
-import { InfoWithIcon } from '@/common/components/InfoWithIcon'
 import {
   BackButton,
   IconsContainer,
@@ -8,7 +7,7 @@ import {
   PostInfoContainer,
 } from './styles'
 
-import { useRequestData } from '@/hooks/useRequestData'
+import { InfoWithIcon } from '@/common/components/InfoWithIcon'
 import { dateDistanceFormatter } from '@/utils/formatter'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
@@ -18,25 +17,19 @@ import {
   faComment,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useParams } from 'react-router-dom'
 
-const ISSUES_URL = 'https://api.github.com/repos/tayhsn/github-blog/issues'
-
-export const PostInfo = () => {
-  const { id } = useParams()
-  const { data, error } = useRequestData(`${ISSUES_URL}/${id}`)
-
-  if (!data || error) {
-    return <></>
+interface PostInfoProps {
+  info: {
+    title: string
+    html_url: string
+    created_at: string
+    comments: string
+    login: string
   }
+}
 
-  const {
-    html_url,
-    title,
-    comments,
-    created_at,
-    user: { login },
-  } = data
+export const PostInfo = ({ info }: PostInfoProps) => {
+  const { title, html_url, created_at, comments, login } = info
 
   const formattedDate = dateDistanceFormatter(created_at)
 
