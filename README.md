@@ -27,7 +27,7 @@ Esta aplicação consome as APIs de Usuários, Issues e Pesquisa do Github.
 
 - Consumo de API com axios
 - Analise da performace com React Dev Tools
-- Implementação de debouce para que a pesquisa seja feita após o usuário parar de digitar
+- Utilização do hook `useCallback` para otimizar requisições
 - Converter textos Markdown em HTML para exibição
 
 ## 🛠 Tecnologias utilizadas
