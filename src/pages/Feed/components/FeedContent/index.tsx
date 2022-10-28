@@ -8,7 +8,6 @@ import { CardContainer, FeedContentContainer, SearchInput } from './styles'
 
 export const FeedContent = () => {
   const [issues, setIssues] = useState<Issue[]>([])
-  const [search, setSearch] = useState<string>('')
 
   useEffect(() => {
     fetchIssues()
@@ -31,15 +30,13 @@ export const FeedContent = () => {
   }
 
   const handlerBounceSearch = useCallback(
-    debounce((nextValue) => fetchSearchIssues(nextValue), 1000),
+    debounce((value) => fetchSearchIssues(value), 1000),
     []
   )
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value: nextValue } = event.target
-    setSearch(nextValue)
-
-    handlerBounceSearch(nextValue)
+    const { value } = event.target
+    handlerBounceSearch(value)
   }
 
   let totalPosts = issues.length
@@ -53,8 +50,6 @@ export const FeedContent = () => {
         </label>
         <SearchInput
           onChange={handleSearchChange}
-          onBlur={() => fetchSearchIssues(search)}
-          value={search}
           id="search"
           placeholder="Buscar conteúdo"
         />
