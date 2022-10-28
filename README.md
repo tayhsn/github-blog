@@ -10,6 +10,8 @@
 
 Esta aplicação é **o projeto de entrega** do módulo de "Consumo de API e performance no ReactJS" do curso de especialização Ignite.
 
+## 🖼 [Layout no figma](<https://www.figma.com/file/ZEE0OaGwSHMs9j9EH3Us5y/GitHub-Blog-(Community)?node-id=2%3A1550>)
+
 ## ✍🏻 Funcionalidades
 
 Esta aplicação consome 3 APIs diferentes do Github: users, issues e search.
