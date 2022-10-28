@@ -1,7 +1,8 @@
 import { RegularText } from '@/common/Typography'
 import { api } from '@/lib/axios'
 import { Issue } from '@/pages/Post'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { debounce } from 'lodash'
+import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import { PostCard } from './PostCard'
 import { CardContainer, FeedContentContainer, SearchInput } from './styles'
 
@@ -29,20 +30,19 @@ export const FeedContent = () => {
     setIssues(response.data.items)
   }
 
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const searchValue = event.target.value.toString()
-    setSearch(searchValue)
+  const handlerBounceSearch = useCallback(
+    debounce((nextValue) => fetchSearchIssues(nextValue), 1000),
+    []
+  )
 
-    // handlerBounceSearch()
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value: nextValue } = event.target
+    setSearch(nextValue)
+
+    handlerBounceSearch(nextValue)
   }
 
   let totalPosts = issues.length
-
-  // const handlerBounceSearch = useCallback(
-  //   debounce(() => fetchSearchResults(search), 1000),
-  //   []
-  // )
-
   return (
     <FeedContentContainer>
       <form>
