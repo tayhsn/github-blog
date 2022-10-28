@@ -1,44 +1,47 @@
 import { RegularText } from '@/common/Typography'
-import { Post } from '@/contexts/BlogContext'
 import { api } from '@/lib/axios'
+import { Issue } from '@/pages/Post'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { PostCard } from './PostCard'
 import { CardContainer, FeedContentContainer, SearchInput } from './styles'
 
 export const FeedContent = () => {
-  const [posts, setPosts] = useState([] as Post[])
+  const [issues, setIssues] = useState<Issue[]>([])
   const [search, setSearch] = useState<string>('')
 
   useEffect(() => {
-    fetchPosts()
+    fetchIssues()
   }, [])
 
-  const fetchPosts = async () => {
+  const fetchIssues = async () => {
     const response = await api
       .get('repos/tayhsn/github-blog/issues')
       .then((res) => res.data)
 
-    setPosts(response)
+    setIssues(response)
   }
 
-  const fetchSearchResults = async (query?: string) => {
+  const fetchSearchIssues = async (query?: string) => {
     const response = await api.get(
       `search/issues?q=${query}%20repo:tayhsn/github-blog`
     )
 
-    setPosts(response.data.items)
+    setIssues(response.data.items)
   }
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value.toString()
     setSearch(searchValue)
 
-    // debouncedFunction()
+    // handlerBounceSearch()
   }
 
-  let totalPosts = posts.length
+  let totalPosts = issues.length
 
-  // const debouncedFunction = debounce(() => fetchSearchResults(search), 200)
+  // const handlerBounceSearch = useCallback(
+  //   debounce(() => fetchSearchResults(search), 1000),
+  //   []
+  // )
 
   return (
     <FeedContentContainer>
@@ -50,7 +53,7 @@ export const FeedContent = () => {
         </label>
         <SearchInput
           onChange={handleSearchChange}
-          onBlur={() => fetchSearchResults(search)}
+          onBlur={() => fetchSearchIssues(search)}
           value={search}
           id="search"
           placeholder="Buscar conteúdo"
@@ -58,16 +61,17 @@ export const FeedContent = () => {
       </form>
 
       <CardContainer>
-        {posts ? (
-          posts.map((card: any) => (
-            <PostCard
-              key={card.id}
-              info={[card.title, card.body, card.created_at, card.number]}
-            />
-          ))
-        ) : (
-          <></>
-        )}
+        {issues.map((issue: any) => (
+          <PostCard
+            key={issue.id}
+            issueInfo={[
+              issue.title,
+              issue.body,
+              issue.created_at,
+              issue.number,
+            ]}
+          />
+        ))}
       </CardContainer>
     </FeedContentContainer>
   )

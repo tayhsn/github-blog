@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { PostPageContainer } from './styles'
 
-export interface Post {
+export interface Issue {
   title: string
   body: string
   created_at: string
@@ -20,7 +20,7 @@ export interface Post {
 export const Post = () => {
   const { id } = useParams()
   const { user } = useBlog()
-  const [post, setPost] = useState<Post | undefined>(undefined)
+  const [issue, setIssue] = useState<Issue | undefined>(undefined)
 
   useEffect(() => {
     fetchPostById(id!)
@@ -31,19 +31,19 @@ export const Post = () => {
       .get(`repos/tayhsn/github-blog/issues/${id}`)
       .then((res) => res.data)
 
-    setPost(response)
+    setIssue(response)
   }
 
-  if (!post) return <></>
+  if (!issue) return <></>
 
-  const { title, html_url, created_at, comments, body } = post
+  const { title, html_url, created_at, comments, body } = issue
   const { login } = user
 
   const formattedDate = dateDistanceFormatter(created_at)
 
   return (
     <PostPageContainer>
-      <PostInfo info={[login, title, html_url, formattedDate, comments]} />
+      <PostInfo issueInfo={[login, title, html_url, formattedDate, comments]} />
 
       <PostContent body={body} />
     </PostPageContainer>

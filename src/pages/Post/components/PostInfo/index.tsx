@@ -18,11 +18,11 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface PostInfoProps {
-  info: string[]
+  issueInfo: string[]
 }
 
-export const PostInfo = ({ info }: PostInfoProps) => {
-  const [login, title, html_url, formattedDate, comments] = info
+export const PostInfo = ({ issueInfo }: PostInfoProps) => {
+  const [login, title, html_url, formattedDate, comments] = issueInfo
 
   return (
     <PostInfoContainer>

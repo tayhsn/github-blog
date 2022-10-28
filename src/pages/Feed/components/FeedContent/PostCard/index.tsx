@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom'
 import { PostCardContainer } from './styles'
 
 interface PostCardProps {
-  info: string[]
+  issueInfo: string[]
 }
 
-export const PostCard = ({ info }: PostCardProps) => {
-  const [title, body, created_at, number] = info
+export const PostCard = ({ issueInfo }: PostCardProps) => {
+  const [title, body, created_at, number] = issueInfo
   const navigate = useNavigate()
 
   const dateDistance = dateDistanceFormatter(created_at)
