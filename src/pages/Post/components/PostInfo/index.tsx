@@ -8,7 +8,6 @@ import {
 } from './styles'
 
 import { InfoWithIcon } from '@/common/components/InfoWithIcon'
-import { dateDistanceFormatter } from '@/utils/formatter'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowUpRightFromSquare,
@@ -19,19 +18,11 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface PostInfoProps {
-  info: {
-    title: string
-    html_url: string
-    created_at: string
-    comments: string
-    login: string
-  }
+  info: string[]
 }
 
 export const PostInfo = ({ info }: PostInfoProps) => {
-  const { title, html_url, created_at, comments, login } = info
-
-  const formattedDate = dateDistanceFormatter(created_at)
+  const [login, title, html_url, formattedDate, comments] = info
 
   return (
     <PostInfoContainer>

@@ -7,7 +7,7 @@ import {
 } from './styles'
 
 import { RegularText, TitleText } from '@/common/Typography'
-import { useRequestData } from '@/hooks/useRequestData'
+import { useBlog } from '@/hooks/useBlog'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowUpRightFromSquare,
@@ -16,16 +16,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const USER_URL = 'https://api.github.com/users/tayhsn'
-
 export const PersonInfo = () => {
-  const { data, error } = useRequestData(USER_URL)
-
-  if (!data || error) {
-    return <></>
-  }
-
-  const { avatar_url, bio, company, followers, login, name, html_url } = data
+  const {
+    user: { avatar_url, bio, company, followers, login, name, html_url },
+  } = useBlog()
 
   return (
     <ProfileContainer>

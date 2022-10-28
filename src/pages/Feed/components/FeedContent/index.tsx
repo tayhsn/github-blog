@@ -1,27 +1,21 @@
 import { RegularText } from '@/common/Typography'
+import { Post } from '@/contexts/BlogContext'
 import { api } from '@/lib/axios'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { PostCard } from './PostCard'
 import { CardContainer, FeedContentContainer, SearchInput } from './styles'
 
-const ISSUES_URL = 'https://api.github.com/repos/tayhsn/github-blog/issues'
-
-const SEARCH_ISSUES_URL = `https://api.github.com/search/issues`
-
-export interface Post {
-  title: string
-  body: string
-  created_at: string
-  number: string
-}
-
 export const FeedContent = () => {
+  const [posts, setPosts] = useState([] as Post[])
   const [search, setSearch] = useState<string>('')
-  const [posts, setPosts] = useState<Post[]>([])
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
 
   const fetchPosts = async () => {
     const response = await api
-      .get(`repos/tayhsn/github-blog/issues`)
+      .get('repos/tayhsn/github-blog/issues')
       .then((res) => res.data)
 
     setPosts(response)
@@ -35,16 +29,16 @@ export const FeedContent = () => {
     setPosts(response.data.items)
   }
 
-  useEffect(() => {
-    fetchPosts()
-  }, [])
-
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const searchBy = event.target.value.toString()
-    setSearch(searchBy)
+    const searchValue = event.target.value.toString()
+    setSearch(searchValue)
+
+    // debouncedFunction()
   }
 
   let totalPosts = posts.length
+
+  // const debouncedFunction = debounce(() => fetchSearchResults(search), 200)
 
   return (
     <FeedContentContainer>

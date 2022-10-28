@@ -1,7 +1,4 @@
-import { useBlog } from '@/hooks/useBlog'
-import { useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
-import { useParams } from 'react-router-dom'
 import rehypeHighlight from 'rehype-highlight'
 import remarkGfm from 'remark-gfm'
 import { PostContentContainer } from './styles'
