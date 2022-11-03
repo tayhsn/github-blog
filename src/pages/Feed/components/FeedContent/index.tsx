@@ -1,35 +1,14 @@
 import { RegularText } from '@/common/Typography'
-import { api } from '@/lib/axios'
-import { Issue } from '@/pages/Post'
+import { useBlog } from '@/hooks/useBlog'
+import { usePosts } from '@/hooks/usePosts'
 import { debounce } from 'lodash'
-import { ChangeEvent, useCallback, useEffect, useState } from 'react'
+import { ChangeEvent, useCallback } from 'react'
 import { PostCard } from './PostCard'
 import { CardContainer, FeedContentContainer, SearchInput } from './styles'
 
 export const FeedContent = () => {
-  const [issues, setIssues] = useState<Issue[]>([])
-
-  useEffect(() => {
-    fetchIssues()
-  }, [])
-
-  const fetchIssues = useCallback(async () => {
-    const response = await api
-      .get('repos/tayhsn/github-blog/issues')
-      .then((res) => res.data)
-      .catch((error) => console.log(error))
-
-    setIssues(response)
-  }, [])
-
-  const fetchSearchIssues = useCallback(async (query: string) => {
-    const response = await api
-      .get(`search/issues?q=${query}%20repo:tayhsn/github-blog`)
-      .then((res) => res.data.items)
-      .catch((error) => console.log(error))
-
-    setIssues(response)
-  }, [])
+  const { fetchSearchIssues } = useBlog()
+  const { issues } = usePosts()
 
   const handlerBounceSearch = useCallback(
     debounce((value) => fetchSearchIssues(value), 1000),

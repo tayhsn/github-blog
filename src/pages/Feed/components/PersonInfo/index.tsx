@@ -15,11 +15,11 @@ import {
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useUser } from '@/hooks/useUser'
 
 export const PersonInfo = () => {
-  const {
-    user: { avatar_url, bio, company, followers, login, name, html_url },
-  } = useBlog()
+  const { user } = useUser()
+  const { avatar_url, bio, company, followers, login, name, html_url } = user
 
   return (
     <ProfileContainer>
