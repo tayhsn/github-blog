@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ProfileContainer = styled.section`
-  width: 54rem;
+  min-width: 100%;
   min-height: 13.25rem;
 
   padding: 2rem 2.5rem;

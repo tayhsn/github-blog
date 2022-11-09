@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const FeedContentContainer = styled.section`
+  min-width: 54rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
