@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
 export const ProfileContainer = styled.section`
-  width: 54rem;
+  width: 100%;
+
   min-height: 13.25rem;
 
   padding: 2rem 2.5rem;
 
   display: flex;
   gap: 2rem;
-  align-items: center;
+  align-items: flex-start;
 
   background-color: ${({ theme }) => theme.colors['base-profile']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -27,10 +28,12 @@ export const UserThumbnail = styled.img`
 `
 
 export const InfoProfileContainer = styled.div`
-  width: 38.25rem;
+  max-width: 38.25rem;
+  min-height: 8rem;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   gap: 0.5rem;
 
@@ -70,4 +73,5 @@ export const IconsContainer = styled.section`
   display: flex;
   align-items: center;
   gap: 2rem;
+  flex-wrap: wrap;
 `

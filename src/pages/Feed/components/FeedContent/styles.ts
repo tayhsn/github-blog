@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const FeedContentContainer = styled.section`
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -32,7 +34,12 @@ export const SearchInput = styled.input`
 export const CardContainer = styled.div`
   width: 100%;
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: space-between;
+
+  @media screen and (max-width: 848px) {
+    justify-content: center;
+  }
 `

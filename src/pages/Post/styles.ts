@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const PostPageContainer = styled.main`
-  width: 54rem;
+  max-width: 54rem;
+  width: 100%;
   height: 10.5rem;
 
   margin: -90px auto 0;

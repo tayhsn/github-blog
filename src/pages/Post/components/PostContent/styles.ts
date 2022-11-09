@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PostContentContainer = styled.main`
-  width: 54rem;
+  max-width: 100%;
 
   padding: 2.5rem 2rem;
 
@@ -9,5 +9,9 @@ export const PostContentContainer = styled.main`
 
   a {
     color: ${({ theme }) => theme.colors.blue};
+  }
+
+  pre code {
+    white-space: pre-wrap;
   }
 `

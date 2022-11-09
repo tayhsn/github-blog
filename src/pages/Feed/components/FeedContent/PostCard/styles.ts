@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const PostCardContainer = styled.article`
-  width: 26rem;
+  max-width: 23rem;
+  width: 100%;
   min-height: 16.25rem;
 
   background-color: ${({ theme }) => theme.colors['base-post']};
@@ -31,7 +32,7 @@ export const PostCardContainer = styled.article`
   }
 
   main {
-    width: 22rem;
+    max-width: 22rem;
     height: 7rem;
 
     white-space: pre-wrap;

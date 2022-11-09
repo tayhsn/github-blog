@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const PostInfoContainer = styled.section`
-  width: 54rem;
+  width: 100%;
   min-height: 10.5rem;
 
   padding: 2rem;

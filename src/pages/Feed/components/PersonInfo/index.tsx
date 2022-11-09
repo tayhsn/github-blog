@@ -7,7 +7,7 @@ import {
 } from './styles'
 
 import { RegularText, TitleText } from '@/common/Typography'
-import { useBlog } from '@/hooks/useBlog'
+import { useUser } from '@/hooks/useUser'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
   faArrowUpRightFromSquare,
@@ -15,11 +15,11 @@ import {
   faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useUser } from '@/hooks/useUser'
 
 export const PersonInfo = () => {
-  const { user } = useUser()
-  const { avatar_url, bio, company, followers, login, name, html_url } = user
+  const {
+    user: { avatar_url, bio, company, followers, login, name, html_url },
+  } = useUser()
 
   return (
     <ProfileContainer>
