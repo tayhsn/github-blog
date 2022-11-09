@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 export const PostInfoContainer = styled.section`
   width: 100%;
-  min-height: 10.5rem;
 
   padding: 2rem;
 
@@ -77,4 +76,5 @@ export const IconsContainer = styled.footer`
   display: flex;
   align-items: center;
   gap: 2rem;
+  flex-wrap: wrap;
 `

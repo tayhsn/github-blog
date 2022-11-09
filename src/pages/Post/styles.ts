@@ -6,6 +6,7 @@ export const PostPageContainer = styled.main`
   height: 10.5rem;
 
   margin: -90px auto 0;
+  padding: 2rem 2.5rem;
 
   display: flex;
   flex-direction: column;

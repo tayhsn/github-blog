@@ -17,6 +17,10 @@ export const ProfileContainer = styled.section`
   border-radius: 10px;
 
   position: relative;
+
+  @media screen and (max-width: 590px) {
+    flex-direction: column;
+  }
 `
 
 export const UserThumbnail = styled.img`
