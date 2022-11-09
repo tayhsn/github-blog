@@ -82,7 +82,7 @@ export const BlogProvider = ({ children }: BlogProviderProps) => {
 
   const fetchSearchIssues = useCallback(async (query: string) => {
     const response = await api
-      .get(`search/issues?q=${query}%20repo:tayhsn/github-blog`)
+      .get(`search/issues?q=${query}%20repo:tayhsn/github-blog type:issue`)
       .then((res) => res.data.items)
       .catch((error) => console.log(error))
 
